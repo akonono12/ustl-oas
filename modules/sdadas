@@ -1,0 +1,62 @@
+<select>
+  <option value="volvo">Volvo</option>
+  <option value="saab">Saab</option>
+  <option value="mercedes">Mercedes</option>
+  <option value="audi">Audi</option>
+</select>
+
+mysqli_query($con,"INSERT INTO applicants VALUES('','".$_SESSION['student_id']."','".$_POST['fname']."','".$_POST['mname']."','".$_POST['lname']."','".$_GET['s_id']."','".$_POST['contact_num']."',0,0)");
+
+
+                    First Name<input type="text" name="fname" id="" required>
+                    <br><br>
+                    Middle Name<input type="text" name="mname" id="" required>
+                    <br><br>
+                    Last Name<input type="text" name="lname" id="" required>
+                    <br><br>
+                    Contact Number<input type="text" name="contact_num" id="" required>
+                    <br><br><br><br>
+                    <p class="form-signin-heading">Upload Requirements<br>
+                      *Requirements to submit* <br>
+                      -Certification of good moral character<br>
+                      -One (1) piece of 2"x2" picture<br>
+                    </p>
+
+
+
+
+                     <div class="form-group">
+                      <label for="exampleInputFile">File input</label>
+                      <input type="file" name="profile" id="exampleInputFile" required>
+                    </div>
+                    <input type="submit" name="submitApp" value="Submit"/>    
+                    <select id="option" name="option">
+                    <option name="pdf">PDF</option>
+                    <option name="img">IMG</option>
+                    </select> 
+                </form>
+              </center>
+
+
+
+              if(isset($_POST['save'])){
+        if($_GET['mode'] == 'update'){
+            $res = ;
+            if($res){
+               ;   
+            } else {
+                ;   
+            }
+        } elseif($_GET['mode'] == 'add'){
+            $res = mysqli_query($con,"INSERT INTO users(username, password, role, emp_id, student_id) VALUES('".$_POST['username']."','".$_POST['password']."','".$_POST['role']."','".$_POST['emp_id']."','".$_POST['student_id']."')");
+            //echo "INSERT INTO users(username, password, role, emp_id, student_id) VALUES('".$_POST['username']."','".$_POST['password']."','".$_POST['role']."','".$_POST['emp_id']."','".$_POST['student_id']."')";
+            if($res){
+                header("location: ../users.php");   
+            } else {
+                header("location: ../adduser.php?save=fail");   
+            }
+        }   
+    }
+
+
+    a.*, b.office_name FROM employees a JOIN office b ON a.office_id = b.id WHERE a.id = '".$_GET['id']."'
